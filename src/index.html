@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="AI-powered marketing analysis and optimization for Adobe Express"
+        />
+        <meta name="keywords" content="Adobe, Express, Add-On, Marketing, AI, Analysis" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Marketing Analyzer</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="tabs">
+                <button class="tab active" id="tab-form">Form</button>
+                <button class="tab" id="tab-analysis">Analysis</button>
+            </div>
+            <div class="tab-content active" id="form-tab-content">
+                <select id="section-selector" class="section-selector">
+                    <option value="design-analyzer">Design Analyzer</option>
+                    <option value="caption-generator">Caption Generator</option>
+                    <option value="campaign-generator">Campaign Generator</option>
+                </select>
+
+                <div class="form-fields">
+                    <div class="form-group">
+                        <label for="product-service">Product/Service</label>
+                        <textarea id="product-service"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <textarea id="industry"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="target-demographic">Target Demographic</label>
+                        <textarea id="target-demographic"></textarea>
+                    </div>
+                </div>
+
+                <div id="design-analyzer-section">
+                    <button id="autofill-button-design" class="analyze-button" style="margin-bottom: 20px;">✨ Auto-fill with AI</button>
+                    <div class="custom-prompt-container">
+                        <div class="form-group">
+                            <label for="custom-prompt">Additional Notes</label>
+                            <textarea id="custom-prompt"></textarea>
+                        </div>
+                    </div>
+                    <div class="formality-container">
+                        <div class="formality-group">
+                            <label for="formality-scale">Formality Level</label>
+                            <input type="range" id="formality-scale" class="formality-scale" min="1" max="5" value="3" step="1">
+                            <div class="scale-markers">
+                                <span>Casual</span>
+                                <span></span>
+                                <span>Balanced</span>
+                                <span></span>
+                                <span>Formal</span>
+                            </div>
+                            <div id="formality-display" class="formality-display">Balanced</div>
+                        </div>
+                    </div>
+                    <button id="analyze-button" class="analyze-button" disabled>Analyze & Optimize</button>
+                </div>
+
+                <div id="caption-generator-section" style="display: none;">
+                    <button id="autofill-button-caption" class="analyze-button" style="margin-bottom: 20px;">✨ Auto-fill with AI</button>
+                    <form id="caption-form" style="margin-bottom: 16px;">
+                        <div class="form-group">
+                            <label for="caption-tone">Tone</label>
+                            <input type="text" id="caption-tone" placeholder="e.g. Playful, Professional, Witty" />
+                        </div>
+                        <div class="form-group">
+                            <label for="caption-target-audience">Target Audience</label>
+                            <input type="text" id="caption-target-audience" placeholder="e.g. Young Adults, Professionals" />
+                        </div>
+                        <div class="form-group">
+                            <label>Include Emojis</label>
+                            <div class="toggle-container">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="caption-emoji" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Add emojis</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Include Hashtags</label>
+                            <div class="toggle-container">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="caption-hashtags" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Add hashtags</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Platforms</label>
+                            <div class="platform-selector">
+                                <div class="platform-options">
+                                    <div class="checkbox-container">
+                                        <label class="adobe-checkbox">
+                                            <input type="checkbox" class="caption-platform" value="Instagram" checked />
+                                            <span class="checkbox-mark"></span>
+                                        </label>
+                                        <span class="checkbox-label">Instagram</span>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <label class="adobe-checkbox">
+                                            <input type="checkbox" class="caption-platform" value="Facebook" checked />
+                                            <span class="checkbox-mark"></span>
+                                        </label>
+                                        <span class="checkbox-label">Facebook</span>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <label class="adobe-checkbox">
+                                            <input type="checkbox" class="caption-platform" value="Twitter" checked />
+                                            <span class="checkbox-mark"></span>
+                                        </label>
+                                        <span class="checkbox-label">Twitter</span>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <label class="adobe-checkbox">
+                                            <input type="checkbox" class="caption-platform" value="LinkedIn" checked />
+                                            <span class="checkbox-mark"></span>
+                                        </label>
+                                        <span class="checkbox-label">LinkedIn</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="caption-button" class="analyze-button">Generate Captions</button>
+                </div>
+
+                <div id="campaign-generator-section" style="display: none;">
+                    <button id="autofill-button-campaign" class="analyze-button" style="margin-bottom: 20px;">✨ Auto-fill with AI</button>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="create-mockup-toggle">Create Mockup</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="create-mockup-toggle" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Generate a mockup for this campaign</span>
+                    </div>
+                    <button id="campaign-button" class="analyze-button">Generate Campaign</button>
+                </div>
+            </div>
+            <div class="tab-content" id="analysis-tab-content">
+                <!-- Results Section -->
+                <div id="image-container" class="image-container" style="display: none;"></div>
+                <div id="analysis-container" class="analysis-container" style="display: none;">
+                    <h3>Marketing Analysis</h3>
+                    <p id="analysis-output" class="analysis-output">Your analysis will appear here...</p>
+                    <div id="export-buttons" style="display: none; margin-top: 2px;">
+                        <button id="export-txt-button" class="analyze-button">Export as .txt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="ui/index.js"></script>
+    </body>
+</html>

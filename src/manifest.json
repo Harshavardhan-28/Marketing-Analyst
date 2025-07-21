@@ -1,0 +1,30 @@
+{
+    "testId": "3e330c62-31ce-4883-9285-17242aa2095b",
+    "name": "Marketinsights",
+    "version": "1.0.0",
+    "manifestVersion": 2,
+    "requirements": {
+        "renditionPreview": true,
+        "apps": [
+            {
+                "name": "Express",
+                "apiVersion": 1
+            }
+        ]
+    },
+    "entryPoints": [
+        {
+            "type": "panel",
+            "id": "panel1",
+            "main": "index.html",
+            "documentSandbox": "sandbox/code.js",
+            "permissions": {
+                "sandbox": [
+                "allow-popups-to-escape-sandbox",
+                "allow-popups",
+                "allow-downloads"
+                ]
+            }
+        }
+    ]
+}

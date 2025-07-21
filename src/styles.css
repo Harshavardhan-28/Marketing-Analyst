@@ -1,0 +1,739 @@
+/* Adobe-style design system variables */
+:root {
+    --adobe-blue: #1473e6;
+    --adobe-blue-hover: #0d66d0;
+    --adobe-blue-light: #e6f4ff;
+    --adobe-gray-900: #2c2c2c;
+    --adobe-gray-800: #393939;
+    --adobe-gray-700: #4b4b4b;
+    --adobe-gray-600: #6e6e6e;
+    --adobe-gray-500: #909090;
+    --adobe-gray-400: #b8b8b8;
+    --adobe-gray-300: #d3d3d3;
+    --adobe-gray-200: #e6e6e6;
+    --adobe-gray-100: #f5f5f5;
+    --adobe-gray-50: #fafafa;
+    --adobe-red: #e34850;
+    --adobe-green: #2d9d78;
+    --adobe-orange: #e68619;
+    
+    /* Spectrum color tokens */
+    --primary-color: var(--adobe-blue);
+    --primary-hover: var(--adobe-blue-hover);
+    --primary-light: var(--adobe-blue-light);
+    --background: #ffffff;
+    --surface: var(--adobe-gray-50);
+    --surface-hover: var(--adobe-gray-100);
+    --border: var(--adobe-gray-300);
+    --border-focus: var(--adobe-blue);
+    --text-primary: var(--adobe-gray-900);
+    --text-secondary: var(--adobe-gray-700);
+    --text-muted: var(--adobe-gray-500);
+    --success: var(--adobe-green);
+    --error: var(--adobe-red);
+    
+    /* Adobe shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    
+    /* Adobe border radius */
+    --radius: 4px;
+    --radius-sm: 2px;
+    --radius-lg: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Adobe Clean', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--adobe-gray-50);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100vh;
+    background-color: var(--background);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Spectrum form components */
+.form-section {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--adobe-blue-hover));
+}
+
+.form-section h2 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.form-section p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Form fields container */
+.form-fields {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+/* Adobe Spectrum form groups */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.form-group textarea,
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: all 0.13s ease-out;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 40px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.form-group textarea:focus,
+.form-group input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(20, 115, 230, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.form-group textarea::placeholder,
+.form-group input[type="text"]::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Section containers */
+#design-analyzer-section,
+#caption-generator-section,
+#campaign-generator-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-top: 16px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+#design-analyzer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2d9d78, #10b981);
+}
+
+#caption-generator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e68619, #f59e0b);
+}
+
+#campaign-generator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e34850, #ef4444);
+}
+
+/* Custom prompt container */
+.custom-prompt-container {
+    background: var(--background);
+    border: 1px solid var(--adobe-gray-200);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 16px 0;
+}
+
+/* Formality container */
+.formality-container {
+    background: var(--background);
+    border: 1px solid var(--adobe-gray-200);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 16px 0;
+}
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 12px;
+    background: var(--background);
+    border: 1px solid var(--adobe-gray-200);
+    border-radius: var(--radius);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--adobe-gray-400);
+    transition: 0.15s ease-out;
+    border-radius: 20px;
+    border: 1px solid var(--adobe-gray-400);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    transition: 0.15s ease-out;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: inset 0 1px 3px rgba(20, 115, 230, 0.2);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(16px);
+}
+
+.toggle-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Platform selector with Adobe checkboxes */
+.platform-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.platform-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 16px;
+    background: var(--background);
+    border: 1px solid var(--adobe-gray-200);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease-out;
+    cursor: pointer;
+}
+
+.checkbox-container:hover {
+    background-color: var(--adobe-gray-50);
+}
+
+.checkbox-container:has(input:checked) {
+    background-color: rgba(20, 115, 230, 0.08);
+}
+
+.adobe-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+.adobe-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: var(--background);
+    border: 1px solid var(--adobe-gray-400);
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease-out;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.adobe-checkbox input:checked ~ .checkbox-mark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: inset 0 1px 2px rgba(20, 115, 230, 0.1);
+}
+
+.checkbox-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.adobe-checkbox input:checked ~ .checkbox-mark:after {
+    display: block;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Adobe Spectrum range slider */
+.formality-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formality-scale {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--adobe-gray-300);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.13s ease-out;
+}
+
+.formality-scale::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.13s ease-out;
+}
+
+.formality-scale::-webkit-slider-thumb:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.formality-scale::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.13s ease-out;
+}
+
+.formality-scale::-moz-range-thumb:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.scale-markers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 0 8px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.scale-markers span {
+    text-align: center;
+}
+
+.formality-display {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: var(--primary-light);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(20, 115, 230, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Adobe Spectrum buttons */
+.analyze-button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.13s ease-out;
+    box-shadow: none;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: inherit;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analyze-button:hover:not(:disabled) {
+    background: var(--primary-hover);
+}
+
+.analyze-button:focus:not(:disabled) {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.analyze-button:disabled {
+    background: var(--adobe-gray-300);
+    color: var(--adobe-gray-500);
+    cursor: not-allowed;
+}
+
+/* Section selector */
+.section-selector {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    font-size: 14px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.13s ease-out;
+    font-family: inherit;
+    margin-bottom: 16px;
+}
+
+.section-selector:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+    outline: none;
+}
+
+/* Adobe Spectrum results and analysis */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.image-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.analysis-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+}
+
+.analysis-container h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.analysis-container h3::before {
+    content: '📊';
+    font-size: 16px;
+}
+
+.analysis-output {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.loading::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+}
+.loading-spinner .spinner {
+  border: 3px solid var(--adobe-gray-300);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Captions for images */
+.image-caption {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Adobe Spectrum tabs */
+.tabs {
+    display: flex;
+    position: relative;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px 16px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: all 0.13s ease-out;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    font-family: inherit;
+}
+
+.tab:hover {
+    color: var(--text-primary);
+    background: var(--surface-hover);
+}
+
+.tab.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Export buttons */
+#export-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+#export-buttons .analyze-button {
+    flex: 1;
+    background: var(--background);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+#export-buttons .analyze-button:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .container {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .form-section {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .analysis-container {
+        padding: 12px;
+    }
+    
+    .platform-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs {
+        margin-bottom: 12px;
+    }
+    
+    .tab {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
